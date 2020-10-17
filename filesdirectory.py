@@ -1,5 +1,5 @@
 import os, os.path
-DIR = 'C:/Users/Mashrur/Desktop/OpenCV/unknownfaces'
+DIR = 'Desktop/OpenCV/unknownfaces'
 
 t=os.listdir(DIR)
 
