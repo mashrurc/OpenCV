@@ -18,9 +18,9 @@ import matplotlib.pyplot as plt
 import os
 os.environ['TF_CPP_MIN_LOG_LEVEL']='3'
 
-train_path = "C:/Users/Mashrur/Desktop/OpenCV/Faces/train"
-test_path = "C:/Users/Mashrur/Desktop/OpenCV/Faces/test"
-valid_path = "C:/Users/Mashrur/Desktop/OpenCV/Faces/valid"
+train_path = "OpenCV/Faces/train"
+test_path = "OpenCV/Faces/test"
+valid_path = OpenCV/Faces/valid"
 
 train_datagen = ImageDataGenerator(
         rescale=1./255,
@@ -34,9 +34,9 @@ test_datagen = ImageDataGenerator(rescale=1./255)
 #test 5 -> 10
 #valid -> 16
 
-train_batches = train_datagen.flow_from_directory(train_path, target_size=(128,128), classes=["shouvik","farzad","masud","flora"], batch_size=2)
-test_batches = test_datagen.flow_from_directory(test_path, target_size=(128,128), classes=["shouvik","farzad","masud","flora"], batch_size= 1)
-valid_batches = ImageDataGenerator().flow_from_directory(valid_path, target_size=(128,128),classes=["shouvik","farzad","masud","flora"], batch_size= 2)
+train_batches = train_datagen.flow_from_directory(train_path, target_size=(128,128), classes=["s","f","m","fl"], batch_size=2)
+test_batches = test_datagen.flow_from_directory(test_path, target_size=(128,128), classes=["s","f","m","fl"], batch_size= 1)
+valid_batches = ImageDataGenerator().flow_from_directory(valid_path, target_size=(128,128),classes=["s","f","m","fl"], batch_size= 2)
 
 model = Sequential()
 model.add(Conv2D(32, (3, 3), input_shape=(128, 128, 3), activation='relu'))
@@ -67,7 +67,7 @@ test_image3 = image.load_img('Faces/pred/pic4.jpg', target_size = (128, 128))
 test_image = image.img_to_array(test_image)
 test_image = np.expand_dims(test_image, axis=0)
 r=model.predict(test_image)
-q=["shouvik","farzad","masud","flora"]
+q=["s","f","m","fl"]
 print(r)
 t=r[0][r[0].tolist().index(max(r[0]))]*100
 print(q[r[0].tolist().index(max(r[0]))], t, "%")
@@ -75,7 +75,7 @@ print(q[r[0].tolist().index(max(r[0]))], t, "%")
 test_image1 = image.img_to_array(test_image1)
 test_image1 = np.expand_dims(test_image1, axis=0)
 r=model.predict(test_image1)
-q=["shouvik","farzad","masud","flora"]
+q=["s","f","m","fl"]
 print(r)
 t1=r[0][r[0].tolist().index(max(r[0]))]*100
 print(q[r[0].tolist().index(max(r[0]))], t1, "%")
@@ -83,7 +83,7 @@ print(q[r[0].tolist().index(max(r[0]))], t1, "%")
 test_image2 = image.img_to_array(test_image2)
 test_image2 = np.expand_dims(test_image2, axis=0)
 r=model.predict(test_image2)
-q=["shouvik","farzad","masud","flora"]
+q=["s","f","m","fl"]
 print(r)
 t2=r[0][r[0].tolist().index(max(r[0]))]*100
 print(q[r[0].tolist().index(max(r[0]))], t2, "%")
@@ -91,7 +91,7 @@ print(q[r[0].tolist().index(max(r[0]))], t2, "%")
 test_image3 = image.img_to_array(test_image3)
 test_image3 = np.expand_dims(test_image3, axis=0)
 r=model.predict(test_image3)
-q=["shouvik","farzad","masud","flora"]
+q=["s","f","m","fl"]
 print(r)
 t3=r[0][r[0].tolist().index(max(r[0]))]*100
 print(q[r[0].tolist().index(max(r[0]))], t3, "%")
